@@ -77,7 +77,8 @@ class HomeController extends Controller
 //        $idclass = $request->lop;
         $id_class = $request->get('id_class');
 //        $id_class = 'CP1696G03';
-        $student_class = DB::table('APTECH_DMSINHVIEN')->where('LOP_ID',$id_class)->get();
+//        $student_class = DB::table('APTECH_DMSINHVIEN')->where('LOP_ID',$id_class)->get();
+        $student_class = DB::table('APTECH_DMSINHVIEN')->where('LOP_ID','CP1896J06')->get();
         return response()->json($student_class);
     }
 //      form đăng kí user là giáo viên

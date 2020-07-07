@@ -1,3 +1,10 @@
 .max-w250{
     max-width: 250px;
 }
+#loading{
+
+}
+#loading img{
+    width: 150px;
+    height: 150px;
+}

@@ -15,6 +15,7 @@
         <div name="Class information" class="attendace">
             <label>Batch
                 <select id="batch" style="color:Tomato;">
+                    <option disabled selected>Choose Class</option>
                     @foreach($batch as $id_class)
                         <option value="{{$id_class->LOP_ID}}">{{$id_class->LOP_ID}}</option>
                     @endforeach
@@ -22,14 +23,16 @@
             </label>
             <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Time
                 <select style="color: Tomato;">
-                    <option>7:00-9:00</option>
-                    <option>9:00-11:00</option>
-                    <option>13:00-15:00</option>
-                    <option>15:00-17:00</option>
+                    <option disabled selected>Choose Time</option>
+                    <option value="1">7:00-9:00</option>
+                    <option value="2">9:00-11:00</option>
+                    <option value="3">13:00-15:00</option>
+                    <option value="4">15:00-17:00</option>
                 </select>
             </label>
             <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Course/Module
                 <select style="color: crimson" class="max-w250">
+                    <option disabled selected>Choose Subject</option>
                     @foreach($subject as $name_class)
                         <option value="{{$name_class->MH_ID}}">{{$name_class->MH_TEN}}</option>
                     @endforeach
@@ -37,11 +40,11 @@
             </label>
         </div>
         <div>
-            <label>Start Date
-                <select>
-                    <option>24-5-2020</option>
-                </select>
-            </label>
+{{--            <label>Start Date--}}
+{{--                <select>--}}
+{{--                    <option>24-5-2020</option>--}}
+{{--                </select>--}}
+{{--            </label>--}}
 {{--            <label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Curriculum : ACCP OV 6715--}}
 {{--            </label>--}}
         </div>
@@ -61,14 +64,20 @@
                 <td id="student_email"></td>
                 <td id="student_id"></td>
                 <td id="student_name"></td>
-                <td id="check"></td>
+                <td id="check" style="display: flex; justify-content: start; align-items: start;flex-direction: column"></td>
             </tr>
             </tbody>
         </table>
     </form>
 
   <div>
-      <a href="{{route('read')}}"><button class="btn btn-primary">Xem Danh sách điểm danh</button></a>
+
+      <a href="{{route('read')}}"><button class="btn btn-primary">Review List</button></a>
+      <a href="#"><button id="isValue" class="btn btn-primary d-none">Save</button></a>
+
+      <div id="loading">
+          <img src="image/loading.gif" />
+      </div>
   </div>
 </section>
 @endsection
